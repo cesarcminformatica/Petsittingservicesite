@@ -2,20 +2,225 @@
 <html lang="pt-br">
 <head>
   <meta charset="utf-8" />
-  <title>Pet Sitting Service</title>
+  <title>Pet Sitting Service • Cuidado profissional para o seu pet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Pet Sitting Service: passeios, visitas domiciliares, hospedagem e agendamento online. Carinho e segurança para o seu pet." />
+
+  <!-- SEO / Social -->
+  <meta property="og:title" content="Pet Sitting Service" />
+  <meta property="og:description" content="Cuidado profissional para o seu pet — passeios, visitas e hospedagem." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0a66c2" />
+
+  <!-- Favicon (troque quando tiver o seu) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='100%25' height='100%25' rx='12' ry='12' fill='%230a66c2'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='34' fill='white'%3EPS%3C/text%3E%3C/svg%3E"/>
+
   <style>
-    body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0;padding:40px;line-height:1.5}
-    header{max-width:900px;margin:auto}
-    h1{margin-top:0}
-    .cta a{display:inline-block;background:#0a66c2;color:#fff;padding:12px 18px;border-radius:8px;text-decoration:none}
+    :root{
+      --brand:#0a66c2;
+      --brand-dark:#094f97;
+      --ink:#0f172a;
+      --muted:#475569;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --radius:14px;
+      --shadow:0 10px 30px rgba(2,8,23,.08);
+    }
+    /* Reset + base */
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{color:var(--brand-dark)}
+    .container{width:min(1100px,92%);margin-inline:auto}
+
+    /* Header */
+    .topbar{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:16px 0}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px}
+    .logo-badge{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--brand);color:#fff;font-weight:800}
+    .nav a{margin-left:16px;font-weight:600}
+
+    /* Hero */
+    .hero{padding:48px 0 28px}
+    .hero-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);display:grid;grid-template-columns:1.2fr 0.8fr;gap:28px;overflow:hidden}
+    .hero-txt{padding:36px}
+    .hero h1{margin:0 0 10px;font-size:clamp(28px,3.4vw,40px);line-height:1.2}
+    .hero p{margin:0 0 18px;color:var(--muted)}
+    .badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 20px}
+    .badge{background:#eaf3ff;color:#174ea6;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:600}
+
+    .cta{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:10px;border:1px solid #cbd5e1;background:#fff;color:var(--ink);font-weight:700}
+    .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+    .btn.primary:hover{background:var(--brand-dark)}
+    .btn.outline:hover{border-color:var(--brand);color:var(--brand)}
+
+    .hero-media{background:linear-gradient(120deg,#e0f2fe, #e6ffe9);display:grid;place-items:center;padding:24px}
+    .hero-media .card{
+      width:min(380px,88%);background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:16px
+    }
+    .petline{display:flex;align-items:center;gap:12px;padding:10px;border-radius:12px;background:#f1f5f9;margin-bottom:10px}
+    .petline b{display:block}
+    .pill{background:#ecfdf5;color:#065f46;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700}
+
+    /* Sections */
+    .section{padding:30px 0}
+    .section h2{margin-top:0}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+    .card h3{margin:0 0 6px}
+    .muted{color:var(--muted)}
+
+    /* Testimonial */
+    .testi{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    blockquote{margin:0;padding:16px;border-left:4px solid var(--brand);background:#fff;border-radius:10px}
+
+    /* Footer */
+    footer{padding:28px 0;color:#94a3b8}
+    .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid #e2e8f0;padding-top:16px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero-card{grid-template-columns:1fr}
+      .testi{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .nav{display:none} /* simplifica menu no mobile; opcional criar um menu hambúrguer */
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Pet Sitting Service</h1>
-    <p>Cuidados profissionais para o seu pet. Agende um atendimento e acompanhe tudo online.</p>
-    <p class="cta"><a href="#contato">Fale conosco</a></p>
+  <!-- Header -->
+  <header class="container topbar">
+    <div class="logo"><span class="logo-badge">PS</span> Pet Sitting Service</div>
+    <nav class="nav" aria-label="principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#precos">Preços</a>
+      <a href="#contato">Contato</a>
+    </nav>
   </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="titulo-principal">
+      <div class="hero-card">
+        <div class="hero-txt">
+          <h1 id="titulo-principal">Tranquilidade para você. <br />Carinho e segurança para o seu pet.</h1>
+          <p>Visitas domiciliares, passeios, hospedagem e acompanhamento por mensagem. Atendimento com agendamento online.</p>
+
+          <div class="badges" role="list">
+            <span class="badge" role="listitem">Seguro • Profissional</span>
+            <span class="badge" role="listitem">Relatório com fotos</span>
+            <span class="badge" role="listitem">Atendimento 7 dias</span>
+          </div>
+
+          <div class="cta">
+            <a class="btn primary" href="#contato" aria-label="Agendar atendimento">Agendar atendimento</a>
+            <a class="btn outline" href="#servicos" aria-label="Ver serviços">Ver serviços</a>
+          </div>
+        </div>
+
+        <div class="hero-media" aria-hidden="true">
+          <div class="card">
+            <div class="petline">
+              <div>
+                <b>Luna</b>
+                <small class="muted">Passeio agendado • Hoje 16:00</small>
+              </div>
+              <span class="pill">Confirmado</span>
+            </div>
+            <div class="petline">
+              <div>
+                <b>Thor</b>
+                <small class="muted">Visita domiciliar • Amanhã 10:30</small>
+              </div>
+              <span class="pill" style="background:#fff7ed;color:#9a3412;">Pendente</span>
+            </div>
+            <p class="muted" style="margin-top:8px">Você recebe fotos e um resumo ao final de cada atendimento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="section" aria-labelledby="h-servicos">
+      <h2 id="h-servicos">Serviços</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Passeios</h3>
+          <p class="muted">Passeios individuais ou em dupla, com rota combinada e tempo de atividade de acordo com o perfil do pet.</p>
+        </article>
+        <article class="card">
+          <h3>Visitas domiciliares</h3>
+          <p class="muted">Troca de água, alimentação, medicação, higiene do local, interação e fotos a cada visita.</p>
+        </article>
+        <article class="card">
+          <h3>Hospedagem</h3>
+          <p class="muted">Ambiente seguro e adaptado, rotina personalizada e monitoramento por mensagens.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTO + COMO FUNCIONA -->
+    <section class="section" aria-labelledby="h-como-funciona">
+      <div class="testi">
+        <blockquote>
+          “Atendimento excelente! Recebi fotos e um relatório completo. Meu cão voltou calmo e feliz.”
+          <br><small class="muted">— Ana, tutora do Max</small>
+        </blockquote>
+        <div class="card">
+          <h3 id="h-como-funciona">Como funciona</h3>
+          <ol>
+            <li>Você agenda o serviço.</li>
+            <li>Confirmamos os detalhes e o perfil do pet.</li>
+            <li>Realizamos o atendimento e enviamos um resumo com fotos.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREÇOS (placeholder) -->
+    <section id="precos" class="section" aria-labelledby="h-precos">
+      <h2 id="h-precos">Preços (a combinar)</h2>
+      <p class="muted">Os valores variam conforme o perfil do pet, distância, duração e recorrência. Solicite um orçamento.</p>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="section" aria-labelledby="h-contato">
+      <h2 id="h-contato">Contato</h2>
+      <div class="card">
+        <p class="muted">Fale pelo WhatsApp, e-mail ou formulário:</p>
+        <p>
+          <a href="https://wa.me/55SEUNUMERO" target="_blank" rel="noopener">WhatsApp</a> •
+          <a href="mailto:contato@petsittingservice.com">contato@petsittingservice.com</a>
+        </p>
+        <!-- Placeholder de formulário (integração futura com serviço de e-mail/back-end) -->
+        <form onsubmit="event.preventDefault(); alert('Mensagem enviada! (exemplo)');" aria-label="Formulário de contato">
+          <div style="display:grid;gap:10px;grid-template-columns:1fr 1fr;max-width:700px">
+            <input required placeholder="Seu nome" aria-label="Seu nome"
+                   style="padding:12px;border:1px solid #cbd5e1;border-radius:8px" />
+            <input required type="email" placeholder="Seu e-mail" aria-label="Seu e-mail"
+                   style="padding:12px;border:1px solid #cbd5e1;border-radius:8px" />
+            <input required placeholder="Assunto" aria-label="Assunto"
+                   style="grid-column:1/-1;padding:12px;border:1px solid #cbd5e1;border-radius:8px" />
+            <textarea required rows="4" placeholder="Mensagem" aria-label="Mensagem"
+                      style="grid-column:1/-1;padding:12px;border:1px solid #cbd5e1;border-radius:8px"></textarea>
+            <button class="btn primary" style="grid-column:1/-1;width:max-content">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="container">
+    <div class="foot">
+      <small>© <span id="y"></span> Pet Sitting Service. Todos os direitos reservados.</small>
+      <small><a href="#contato">Política de Privacidade</a></small>
+    </div>
+  </footer>
+
+  <script>
+    // Ano automático no rodapé
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

@@ -2,4 +2,4 @@
 title: "Pet Sitting Service"
 description: "Seu site oficial para serviços de cuidado de pets."
 theme: jekyll-theme-minimal
-exclude: [".github", "README.md"]
+
